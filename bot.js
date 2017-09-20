@@ -1,7 +1,9 @@
+//Require
 var twit = require('twit');
 var config = require('./config.js');
 var fs = require('fs');
 
+//Principal para usar la API de Twitter 
 var Twitter = new twit(config);
 
 //Function para twittear
@@ -11,7 +13,6 @@ var tweetParams = function(params) {
     console.log(data)
   })
 }
-
 
 var stream = Twitter.stream('statuses/filter', { track: ['@cdmxbot #buscoa'] });
 stream.on('tweet', tweetEvent);
