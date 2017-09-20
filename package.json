@@ -1,0 +1,24 @@
+{
+  "name": "cdmxbot",
+  "version": "1.0.0",
+  "description": "Bot para recopilar y brindar informacion sobre el sismo de cdmx",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.heroku.com/cdmxbot.git"
+  },
+  "keywords": [
+    "bot",
+    "twitter",
+    "cdmx",
+    "sismocdmx"
+  ],
+  "author": "@carlosherrera",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
+}
