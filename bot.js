@@ -3,7 +3,7 @@ var twit = require('twit');
 var config = require('./config.js');
 var fs = require('fs');
 
-//Principal para usar la API de Twitter 
+//Principal para usar la API de Twitter
 var Twitter = new twit(config);
 
 //Function para twittear
@@ -34,13 +34,13 @@ function tweetEvent(tweet) {
 
     //Busca lo recibido
     //Luego por cada tweet encontrado, se responde al usuario
-    Twitter.get('search/tweets', { q: thequery, count: 5, result_type:'recent' }, function(err, data, response) {
+    Twitter.get('search/tweets', { q: thequery, count: 3, result_type:'recent' }, function(err, data, response) {
 
         var total = data.statuses.length;
 
         Array.from(data.statuses).forEach(function(item, index){
           //Armando el objeto para twittear la respuesta
-          var reply = '@' + name + ' Encontré esto (' + (index+1) + '/' + total + '): https://twitter.com/' + item.user.screen_name + '/status/' + item.id_str ;
+          var reply = '@' + name + ' Encontré esto (' + (index+1) + '/' + total + '): https://twitter.com/statuses/' + item.id_str ;
 
           var params             = {
                                     status: reply,
