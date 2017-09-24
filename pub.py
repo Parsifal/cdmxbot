@@ -8,6 +8,7 @@ from tweepy.streaming import StreamListener
 
 from rq import Queue
 from worker import conn
+from sub import process_tweet
 
 q = Queue(connection=conn)
 
@@ -24,12 +25,7 @@ class Listener(StreamListener):
         '''
         Enqueues tweets to be processed
         '''
-        q.enqueue()
-        print(u'{1} (https://twitter.com/{0}/status/{2}) - @{0}'.format(
-            status.user.screen_name,
-            status.text[:20] + '...' if len(status.text) > 10 else status.text,
-            status.id_str
-        ))
+        q.enqueue(process_tweet, status)
     
     def on_error(self, status_code):
         print(status_code)
