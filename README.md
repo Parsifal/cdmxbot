@@ -35,12 +35,33 @@ Usa el `pub.env.dist` para crear tu `pub.env` con los tokens de tu aplicación (
 En `config.yml` puedes cambiar los temas que el bot va a seguir.
 
 ## Echándolo a andar
-1. Levanta los dockers:
+### 1. Instala las dependencias con `pipenv`:
+```bash
+$ pipenv install
+Creating a virtualenv for this project…
+⠋Using real prefix...
+New python executable in ...cdmxbot-XZmYJa7V/bin/python2.7
+Also creating executable in ...cdmxbot-XZmYJa7V/bin/python
+Installing setuptools, pip, wheel...done.
+
+Virtualenv location: ...cdmxbot-XZmYJa7V
+No package provided, installing all dependencies.
+Installing dependencies from Pipfile.lock…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 13/13 — 00:00:05
+```
+
+En macOS hay un problema con los locales, sólo exporta ésto para arreglarlo:
+```
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+```
+
+### 2. Levanta los dockers:
 ```bash
 $ docker-compose up -d
 ```
 
-2. Levanta el publisher (en una subshell):
+### 3. Levanta el publisher (en una subshell):
 ```bash
 $ (eval $(cat pub.env) python pub.py)
 ```
