@@ -109,6 +109,3 @@ ENV/
 
 # mypy
 .mypy_cache/
-
-# nodejs bot
-node_modules
